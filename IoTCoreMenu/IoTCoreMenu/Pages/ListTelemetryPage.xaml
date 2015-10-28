@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="IoTCoreMenu.ListTelemetryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IoTCoreMenu"
+    xmlns:comment="Tag to add comments"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d comment">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel x:Name="VButtonsStackPanel"
+                    comment:VButtonsStackPanel="Contains all sub UI elements vertically"
+                    Margin="10"
+                    Orientation = "Vertical"
+                    HorizontalAlignment ="Left" >
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#7FFFFFFF" Offset="0"/>
+                    <GradientStop Color="#FFEEE414" Offset="0.985"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <ProgressRing x:Name="Progress1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+            <StackPanel x:Name="HButtonsStackPanel"
+                    comment:VButtonsStackPanel="Contains all sub UI elements vertically"
+                    Margin="10"
+                    Orientation = "Horizontal"
+                    HorizontalAlignment ="Left" >
+                <TextBlock x:Name="CommandsHeading"
+                Margin="10"       
+                Text = "Windows IoT Core Sensors: Stored Values on Azure" />
+                
+                <Button  x:Name="Back"
+                    comment:ShowSerial="Click to go back to menus page"
+                    Content = "Back" Click="Back_Click"
+                    Margin="10"
+                    />
+                <Button  x:Name="Refresh"
+                    comment:ShowSerial="Click to refresh the page"
+                    Content = "Refresh" Click="Refresh_Click"
+                    Margin="10"
+                    />
+                
+                </StackPanel>
+            <ListBox x:Name="listItems"
+                comment:listItems="Aka ListItems. Displays list of sensor values from Azure" BorderThickness="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="125"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"  x:Name="IdTextblock" Text="{Binding Id}" VerticalAlignment="Center" TextAlignment="Left" Margin="2" />
+                            <TextBlock Grid.Column="1"  x:Name="SensorTextblock" Text="{Binding Sensor}" VerticalAlignment="Center" TextAlignment="Left" Margin="2" />
+                            <TextBlock Grid.Column="2" x:Name="ValueTextBlock" Text="{Binding Value}" VerticalAlignment="Center" TextAlignment="Left" Width="Auto" Margin="2" />
+                            <TextBlock Grid.Column="3" x:Name="DateTimeTextBlock" Text="{Binding _DateTime}" VerticalAlignment="Center" TextAlignment="Left" Width="Auto" Margin="2" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Page>

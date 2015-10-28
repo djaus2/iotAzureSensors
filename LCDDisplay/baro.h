@@ -1,0 +1,3 @@
+void initBaro();
+
+void readBaro();

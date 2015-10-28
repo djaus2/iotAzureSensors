@@ -1,0 +1,81 @@
+﻿<Page x:Name="MainPage2"
+    x:Class="IoTCoreMenu.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IoTCoreMenu"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:comment="Tag to add comments"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d comment"
+    >
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#7FF11CF1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <!-- Only include the following if 
+           GENERATE_ALL_NON_MENUS_UI isn't defined -->
+        <StackPanel x:Name="VButtonsStackPanel"
+                    comment:VButtonsStackPanel="Contains all sub UI elements vertically"
+                    Margin="10"
+                    Orientation = "Vertical"
+                    HorizontalAlignment ="Left" >
+            <ProgressRing x:Name="Progress1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+
+            <!--
+            <StackPanel x:Name="HButtonsStackPanel1"
+                comment:HButtonsStackPanel2="Top level stuff"
+                Margin="10"
+                Orientation = "Horizontal"
+                HorizontalAlignment ="Left" > -->
+
+            <TextBlock x:Name="CommandsHeading"
+                Margin="10"       
+                Text = "Windows IoT Core Sensors" />
+            <!--    Now part of the UI
+            <Button  x:Name="ShowSerial"
+                comment:ShowSerial="Click to go to Serail setup page"
+                Content = "Setup Serial"
+                Margin="10"                   
+                Click = "navButton_Click" />
+            
+            
+            <Button  x:Name="ShowSensorList"
+                comment:ShowSerial="Show the list of sensors and their values as stored on Azure"
+                Content = "Show sensor list"  
+                Margin="10"
+                Click = "navButton_Click" />
+
+            <Button  x:Name="RefreshShowSensorList"
+                comment:ShowSerial="Back to list of sensors"
+                Content = "Back to sensor list"  
+                Margin="10"                    
+                Click = "navButton_Click" /> 
+             </StackPanel> -->
+
+            <StackPanel x:Name="VButtonsStackPanel2"
+                comment:VButtonsStackPanel2="Dynamic UI is placed in this container"
+                Margin="10"
+                Orientation = "Vertical"
+                HorizontalAlignment ="Left" />
+            <StackPanel x:Name="HButtonsStackPanel2"
+                comment:HButtonsStackPanel2="Place serial text and sensors listbox here"
+                Margin="10"
+                Orientation = "Horizontal"
+                HorizontalAlignment ="Left" >
+                <TextBox x:Name="textBoxSerial" 
+                comment:textBoxSerial="Raw Serial Input is placed here."
+                Text = ""
+                TextWrapping = "Wrap"
+                AcceptsReturn ="True"
+                Width = "400" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- END of  Only include the following if 
+           GENERATE_ALL_NON_MENUS_UI isn't defined -->
+    </Grid>
+</Page>
